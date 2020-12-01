@@ -83,7 +83,7 @@ class Collapse extends BaseComponent {
       const filterElement = SelectorEngine.find(selector)
         .filter(foundElem => foundElem === this._element)
 
-      if (selector !== null && filterElement.length) {
+      if (selector && filterElement.length) {
         this._selector = selector
         this._triggerArray.push(elem)
       }
@@ -363,7 +363,7 @@ EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (
     let config
     if (data) {
       // update parent attribute
-      if (data._parent === null && typeof triggerData.parent === 'string') {
+      if (data._parent && typeof triggerData.parent === 'string') {
         data._config.parent = triggerData.parent
         data._parent = data._getParent()
       }
